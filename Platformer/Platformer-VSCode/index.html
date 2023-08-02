@@ -13,19 +13,19 @@
         <canvas id="canvas" width="1280" height="720"></canvas>
     </div>
 
-    <img id="overlayDied" src="Content/images/Overlays/you_died.png" style="display: none;" />
-    <img id="overlayLose" src="Content/images/Overlays/you_lose.png" style="display: none;" />
-    <img id="overlayWin" src="Content/images/Overlays/you_win.png" style="display: none;" />
+    <img id="overlayDied" src="Content/images/Overlays/you_died.png" style="display: none;" alt=""/>
+    <img id="overlayLose" src="Content/images/Overlays/you_lose.png" style="display: none;" alt=""/>
+    <img id="overlayWin" src="Content/images/Overlays/you_win.png" style="display: none;" alt=""/>
 
-    <img id="gem" src="Content/images/Sprites/Gem.png" style="display: none;" />
+    <img id="gem" src="Content/images/Sprites/Gem.png" style="display: none;" alt=""/>
 
-    <img id="playerCelebrate" src="Content/images/Sprites/Player/Celebrate.png" style="display: none;" />
-    <img id="playerDie" src="Content/images/Sprites/Player/Die.png" style="display: none;" />
-    <img id="playerIdle" src="Content/images/Sprites/Player/Idle.png" style="display: none;" />
-    <img id="playerJump" src="Content/images/Sprites/Player/Jump.png" style="display: none;" />
-    <img id="playerRun" src="Content/images/Sprites/Player/Run.png" style="display: none;" />
+    <img id="playerCelebrate" src="Content/images/Sprites/Player/Celebrate.png" style="display: none;" alt=""/>
+    <img id="playerDie" src="Content/images/Sprites/Player/Die.png" style="display: none;" alt=""/>
+    <img id="playerIdle" src="Content/images/Sprites/Player/Idle.png" style="display: none;" alt=""/>
+    <img id="playerJump" src="Content/images/Sprites/Player/Jump.png" style="display: none;" alt=""/>
+    <img id="playerRun" src="Content/images/Sprites/Player/Run.png" style="display: none;" alt=""/>
 
-    <img id="Layer0_0" src="Content/images/Backgrounds/Layer0_0.png" style="display: none;" />
+    <img id="Layer0_0" src="Content/images/Backgrounds/Layer0_0.png" style="display: none;" alt=""/>
     <img id="Layer0_1" src="Content/images/Backgrounds/Layer0_1.png" style="display: none;" />
     <img id="Layer0_2" src="Content/images/Backgrounds/Layer0_2.png" style="display: none;" />
     <img id="Layer1_0" src="Content/images/Backgrounds/Layer1_0.png" style="display: none;" />
@@ -72,7 +72,16 @@
     <audio id="PlayerKilled" src="Content/sounds/PlayerKilled.mp3" style="display: none;"></audio>
     <audio id="PowerUp" src="Content/sounds/PowerUp.mp3" style="display: none;"></audio>
 
-    <script src="TimeSpan.js"></script>
+
+    <script type="module">
+        import {TestGame} from "./ts/platformergame.ts"
+        let game = new TestGame();
+        game.RunGame(true);
+        setInterval(() => game.Tick(), 13);
+    </script>
+
+
+    <!-- <script src="TimeSpan.js"></script>
     <script src="Point.js"></script>
     <script src="Vector2.js"></script>
     <script src="Rectangle.js"></script>
@@ -92,7 +101,7 @@
     <script src="PlatformerGame.js"></script>
     <script src="Player.js"></script>
     <script src="RectangleExtensions.js"></script>
-    <script src="Tile.js"></script>
+    <script src="Tile.js"></script> -->
 
 </body>
 </html>
