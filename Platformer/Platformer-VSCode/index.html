@@ -1,107 +1,87 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <title>TypeScript HTML App</title>
     <link rel="stylesheet" href="app.css" type="text/css" />
 
 </head>
+
 <body>
 
     <div id="container">
         <canvas id="canvas" width="1280" height="720"></canvas>
     </div>
 
-    <img id="overlayDied" src="Content/images/Overlays/you_died.png" style="display: none;" alt=""/>
-    <img id="overlayLose" src="Content/images/Overlays/you_lose.png" style="display: none;" alt=""/>
-    <img id="overlayWin" src="Content/images/Overlays/you_win.png" style="display: none;" alt=""/>
+    <img id="overlayDied" src="Content/images/Overlays/you_died.png" alt="" />
+    <img id="overlayLose" src="Content/images/Overlays/you_lose.png" alt="" />
+    <img id="overlayWin" src="Content/images/Overlays/you_win.png" alt="" />
 
-    <img id="gem" src="Content/images/Sprites/Gem.png" style="display: none;" alt=""/>
+    <img id="gem" src="Content/images/Sprites/Gem.png" alt="" />
 
-    <img id="playerCelebrate" src="Content/images/Sprites/Player/Celebrate.png" style="display: none;" alt=""/>
-    <img id="playerDie" src="Content/images/Sprites/Player/Die.png" style="display: none;" alt=""/>
-    <img id="playerIdle" src="Content/images/Sprites/Player/Idle.png" style="display: none;" alt=""/>
-    <img id="playerJump" src="Content/images/Sprites/Player/Jump.png" style="display: none;" alt=""/>
-    <img id="playerRun" src="Content/images/Sprites/Player/Run.png" style="display: none;" alt=""/>
+    <img id="playerCelebrate" src="Content/images/Sprites/Player/Celebrate.png" alt="" />
+    <img id="playerDie" src="Content/images/Sprites/Player/Die.png" alt="" />
+    <img id="playerIdle" src="Content/images/Sprites/Player/Idle.png" alt="" />
+    <img id="playerJump" src="Content/images/Sprites/Player/Jump.png" alt="" />
+    <img id="playerRun" src="Content/images/Sprites/Player/Run.png" alt="" />
 
-    <img id="Layer0_0" src="Content/images/Backgrounds/Layer0_0.png" style="display: none;" alt=""/>
-    <img id="Layer0_1" src="Content/images/Backgrounds/Layer0_1.png" style="display: none;" />
-    <img id="Layer0_2" src="Content/images/Backgrounds/Layer0_2.png" style="display: none;" />
-    <img id="Layer1_0" src="Content/images/Backgrounds/Layer1_0.png" style="display: none;" />
-    <img id="Layer1_1" src="Content/images/Backgrounds/Layer1_1.png" style="display: none;" />
-    <img id="Layer1_2" src="Content/images/Backgrounds/Layer1_2.png" style="display: none;" />
-    <img id="Layer2_0" src="Content/images/Backgrounds/Layer2_0.png" style="display: none;" />
-    <img id="Layer2_1" src="Content/images/Backgrounds/Layer2_1.png" style="display: none;" />
-    <img id="Layer2_2" src="Content/images/Backgrounds/Layer2_2.png" style="display: none;" />
+    <img id="Layer0_0" src="Content/images/Backgrounds/Layer0_0.png" alt="" />
+    <img id="Layer0_1" src="Content/images/Backgrounds/Layer0_1.png" alt="" />
+    <img id="Layer0_2" src="Content/images/Backgrounds/Layer0_2.png" alt="" />
+    <img id="Layer1_0" src="Content/images/Backgrounds/Layer1_0.png" alt="" />
+    <img id="Layer1_1" src="Content/images/Backgrounds/Layer1_1.png" alt="" />
+    <img id="Layer1_2" src="Content/images/Backgrounds/Layer1_2.png" alt="" />
+    <img id="Layer2_0" src="Content/images/Backgrounds/Layer2_0.png" alt="" />
+    <img id="Layer2_1" src="Content/images/Backgrounds/Layer2_1.png" alt="" />
+    <img id="Layer2_2" src="Content/images/Backgrounds/Layer2_2.png" alt="" />
 
-    <img id="BlockA0" src="Content/images/Tiles/BlockA0.png" style="display: none;" />
-    <img id="BlockA1" src="Content/images/Tiles/BlockA1.png" style="display: none;" />
-    <img id="BlockA2" src="Content/images/Tiles/BlockA2.png" style="display: none;" />
-    <img id="BlockA3" src="Content/images/Tiles/BlockA3.png" style="display: none;" />
-    <img id="BlockA4" src="Content/images/Tiles/BlockA4.png" style="display: none;" />
-    <img id="BlockA5" src="Content/images/Tiles/BlockA5.png" style="display: none;" />
-    <img id="BlockA6" src="Content/images/Tiles/BlockA6.png" style="display: none;" />
-    <img id="BlockB0" src="Content/images/Tiles/BlockB0.png" style="display: none;" />
-    <img id="BlockB1" src="Content/images/Tiles/BlockB1.png" style="display: none;" />
-    <img id="Exit" src="Content/images/Tiles/Exit.png" style="display: none;" />
-    <img id="Platform" src="Content/images/Tiles/Platform.png" style="display: none;" />
+    <img id="BlockA0" src="Content/images/Tiles/BlockA0.png"  />
+    <img id="BlockA1" src="Content/images/Tiles/BlockA1.png"  />
+    <img id="BlockA2" src="Content/images/Tiles/BlockA2.png"  />
+    <img id="BlockA3" src="Content/images/Tiles/BlockA3.png"  />
+    <img id="BlockA4" src="Content/images/Tiles/BlockA4.png"  />
+    <img id="BlockA5" src="Content/images/Tiles/BlockA5.png"  />
+    <img id="BlockA6" src="Content/images/Tiles/BlockA6.png"  />
+    <img id="BlockB0" src="Content/images/Tiles/BlockB0.png"  />
+    <img id="BlockB1" src="Content/images/Tiles/BlockB1.png"  />
+    <img id="Exit" src="Content/images/Tiles/Exit.png"  />
+    <img id="Platform" src="Content/images/Tiles/Platform.png"  />
 
-    <img id="MonsterADie" src="Content/images/Sprites/MonsterA/Die.png" style="display: none;" />
-    <img id="MonsterAIdle" src="Content/images/Sprites/MonsterA/Idle.png" style="display: none;" />
-    <img id="MonsterARun" src="Content/images/Sprites/MonsterA/Run.png" style="display: none;" />
+    <img id="MonsterADie" src="Content/images/Sprites/MonsterA/Die.png"  />
+    <img id="MonsterAIdle" src="Content/images/Sprites/MonsterA/Idle.png"  />
+    <img id="MonsterARun" src="Content/images/Sprites/MonsterA/Run.png"  />
 
-    <img id="MonsterBDie" src="Content/images/Sprites/MonsterB/Die.png" style="display: none;" />
-    <img id="MonsterBIdle" src="Content/images/Sprites/MonsterB/Idle.png" style="display: none;" />
-    <img id="MonsterBRun" src="Content/images/Sprites/MonsterB/Run.png" style="display: none;" />
+    <img id="MonsterBDie" src="Content/images/Sprites/MonsterB/Die.png"  />
+    <img id="MonsterBIdle" src="Content/images/Sprites/MonsterB/Idle.png"  />
+    <img id="MonsterBRun" src="Content/images/Sprites/MonsterB/Run.png"  />
 
-    <img id="MonsterCDie" src="Content/images/Sprites/MonsterC/Die.png" style="display: none;" />
-    <img id="MonsterCIdle" src="Content/images/Sprites/MonsterC/Idle.png" style="display: none;" />
-    <img id="MonsterCRun" src="Content/images/Sprites/MonsterC/Run.png" style="display: none;" />
+    <img id="MonsterCDie" src="Content/images/Sprites/MonsterC/Die.png"  />
+    <img id="MonsterCIdle" src="Content/images/Sprites/MonsterC/Idle.png"  />
+    <img id="MonsterCRun" src="Content/images/Sprites/MonsterC/Run.png"  />
 
-    <img id="MonsterDDie" src="Content/images/Sprites/MonsterD/Die.png" style="display: none;" />
-    <img id="MonsterDIdle" src="Content/images/Sprites/MonsterD/Idle.png" style="display: none;" />
-    <img id="MonsterDRun" src="Content/images/Sprites/MonsterD/Run.png" style="display: none;" />
+    <img id="MonsterDDie" src="Content/images/Sprites/MonsterD/Die.png"  />
+    <img id="MonsterDIdle" src="Content/images/Sprites/MonsterD/Idle.png"  />
+    <img id="MonsterDRun" src="Content/images/Sprites/MonsterD/Run.png"  />
 
-    <audio id="ExitReached" src="Content/sounds/ExitReached.mp3" style="display: none;"></audio>
-    <audio id="GemCollected" src="Content/sounds/GemCollected.mp3" style="display: none;"></audio>
-    <audio id="MonsterKilled" src="Content/sounds/MonsterKilled.mp3" style="display: none;"></audio>
-    <audio id="Music" src="Content/sounds/Music.mp3" style="display: none;"></audio>
-    <audio id="PlayerFall" src="Content/sounds/PlayerFall.mp3" style="display: none;"></audio>
-    <audio id="PlayerJump" src="Content/sounds/PlayerJump.mp3" style="display: none;"></audio>
-    <audio id="PlayerKilled" src="Content/sounds/PlayerKilled.mp3" style="display: none;"></audio>
-    <audio id="PowerUp" src="Content/sounds/PowerUp.mp3" style="display: none;"></audio>
+    <audio id="ExitReached" src="Content/sounds/ExitReached.mp3" ></audio>
+    <audio id="GemCollected" src="Content/sounds/GemCollected.mp3" ></audio>
+    <audio id="MonsterKilled" src="Content/sounds/MonsterKilled.mp3" ></audio>
+    <audio id="Music" src="Content/sounds/Music.mp3" ></audio>
+    <audio id="PlayerFall" src="Content/sounds/PlayerFall.mp3" ></audio>
+    <audio id="PlayerJump" src="Content/sounds/PlayerJump.mp3" ></audio>
+    <audio id="PlayerKilled" src="Content/sounds/PlayerKilled.mp3" ></audio>
+    <audio id="PowerUp" src="Content/sounds/PowerUp.mp3" ></audio>
 
 
     <script type="module">
-        import {TestGame} from "./ts/platformergame.ts"
-        let game = new TestGame();
+        import { PlatformerGame } from "./out/ts/platformergame.js"
+        let game = new PlatformerGame();
         game.RunGame(true);
         setInterval(() => game.Tick(), 13);
     </script>
 
-
-    <!-- <script src="TimeSpan.js"></script>
-    <script src="Point.js"></script>
-    <script src="Vector2.js"></script>
-    <script src="Rectangle.js"></script>
-    <script src="Controls.js"></script>
-    <script src="GameClock.js"></script>
-    <script src="SpriteBatch.js"></script>
-    <script src="GameTime.js"></script>
-    <script src="Animation.js"></script>
-    <script src="AnimationPlayer.js"></script>
-    <script src="Circle.js"></script>
-    <script src="Enemy.js"></script>
-    <script src="Gem.js"></script>
-    <script src="Level.js"></script>
-    <script src="MathHelper.js"></script>
-    <script src="Program.js"></script>
-    <script src="Game.js"></script>
-    <script src="PlatformerGame.js"></script>
-    <script src="Player.js"></script>
-    <script src="RectangleExtensions.js"></script>
-    <script src="Tile.js"></script> -->
-
 </body>
+
 </html>
