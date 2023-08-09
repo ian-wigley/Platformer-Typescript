@@ -30,7 +30,7 @@ export class Level {
     private content;
     private exitReachedSound: HTMLAudioElement;
 
-    constructor(serviceProvider, path: string, ctrl: Controls, score?: number) {
+    constructor(serviceProvider: any, path: string, ctrl: Controls, score?: number) {
         this.timeRemaining = this.timeRemaining.FromMinutes(2.0);
         this.m_ctrl = ctrl;
         if (score) {
@@ -47,7 +47,7 @@ export class Level {
     }
 
     private LoadTiles(path: string): void {
-        // let width: number = 5;
+
         let lines: any = [];
         let levelBytes: string;
         let _this = this;
@@ -61,10 +61,9 @@ export class Level {
         };
         xhr.onloadend = function () {
             _this.loaded = true;
-            console.log(navigator.userAgent);
+            // console.log(navigator.userAgent);
             // let line = levelBytes.split("\r\n");
             let line = levelBytes.split("\n");
-            // width = line[0].length;
             lines.push(line);
             _this.tiles = [];
             for (let y: number = 0; y < _this.Width; ++y) {
@@ -73,19 +72,8 @@ export class Level {
             // let length = line[0].length
             for (let y: number = 0; y < _this.Height; ++y) {
                 for (let x: number = 0; x < _this.Width; ++x) {
-                    let t = "";
-                    // TODO remove
-                    try {
-                        let tileType: string = line[y][x];
-                        t = tileType;
-                        _this.tiles[x][y] = _this.LoadTile(tileType, x, y);
-
-                    }
-                    catch (err) {
-                        console.log(t, y);
-
-                    }
-
+                    let tileType: string = line[y][x];
+                    _this.tiles[x][y] = _this.LoadTile(tileType, x, y);
                 }
             }
             if (_this.Player == null) {
