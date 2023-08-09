@@ -29,7 +29,7 @@ export class Gem {
         this.collectedSound = <HTMLAudioElement>document.getElementById("GemCollected");
     }
 
-    public Update(gameTime): void {
+    public Update(gameTime: GameTime): void {
         let BounceHeight: number = 0.18;
         let BounceRate: number = 3.0;
         let BounceSync: number = -0.75;
