@@ -61,9 +61,8 @@ export class Level {
         };
         xhr.onloadend = function () {
             _this.loaded = true;
-            // console.log(navigator.userAgent);
-            // let line = levelBytes.split("\r\n");
-            let line = levelBytes.split("\n");
+            let delimeter = (navigator.platform == "Win32") ? "\r\n" : "\n" ;
+            let line = levelBytes.split(delimeter);
             lines.push(line);
             _this.tiles = [];
             for (let y: number = 0; y < _this.Width; ++y) {
