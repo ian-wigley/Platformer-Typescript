@@ -1,6 +1,6 @@
 import { Level } from "./level.js";
 import { Tile } from "./tile.js";
-import { Circle } from "../ts_lib/circle.js";
+import { Circle } from "./circle.js";
 import { Vector2 } from "../ts_lib/vector2.js";
 import { Player } from "./player.js";
 import { Color } from "../ts_lib/color.js";
