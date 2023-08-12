@@ -56,7 +56,7 @@ export class Level {
         xhr.open('GET', path, true);
         xhr.responseType = 'text';
 
-        xhr.onload = function (e) {
+        xhr.onload = function () {
             levelBytes = this.response;
         };
         xhr.onloadend = function () {
@@ -68,7 +68,6 @@ export class Level {
             for (let y: number = 0; y < _this.Width; ++y) {
                 _this.tiles.push(new Array(15))
             }
-            // let length = line[0].length
             for (let y: number = 0; y < _this.Height; ++y) {
                 for (let x: number = 0; x < _this.Width; ++x) {
                     let tileType: string = line[y][x];
