@@ -1,6 +1,6 @@
 import { Vector2 } from "../ts_lib/vector2.js";
 import { Rectangle } from "../ts_lib/rectangle.js";
-import { MathHelper } from "./MathHelper.js";
+import { MathHelper } from "./mathhelper.js";
 
 export class Circle {
     public Center: Vector2;
