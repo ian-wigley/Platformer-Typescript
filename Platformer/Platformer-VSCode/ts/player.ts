@@ -1,4 +1,4 @@
-import { MathHelper } from "../ts_lib/mathhelper.js";
+import { MathHelper } from "./mathhelper.js";
 import { RectangleExtensions } from "../ts_lib/rectangleextensions.js";
 import { Vector2 } from "../ts_lib/vector2.js";
 import { AnimationPlayer } from "./animationplayer.js";
@@ -151,8 +151,8 @@ export class Player {
     }
 
     public ApplyPhysics(gameTime: GameTime): void {
-        var elapsed: number = <number>gameTime.ElapsedGameTime.TotalSeconds;
-        var previousPosition: Vector2 = new Vector2(this.Position.X, this.Position.Y);
+        let elapsed: number = gameTime.ElapsedGameTime.TotalSeconds;
+        let previousPosition: Vector2 = new Vector2(this.Position.X, this.Position.Y);
         this.velocity.X += this.movement * Player.MoveAcceleration * elapsed;
         this.velocity.Y = MathHelper.Clamp((this.velocity.Y + Player.GravityAcceleration * elapsed), -Player.MaxFallSpeed, Player.MaxFallSpeed);
         this.velocity.Y = this.DoJump(this.velocity.Y, gameTime);
