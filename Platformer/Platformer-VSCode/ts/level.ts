@@ -148,11 +148,6 @@ export class Level {
     }
 
     private LoadGemTile(x: number, y: number): Tile {
-
-        let temp = this.GetBounds(x, y).Center;
-
-        console.log(temp);
-
         let position: Point = this.GetBounds(x, y).Center;
         this.gems.push(new Gem(this, new Vector2(position.X, position.Y)));
         return new Tile(null, TileCollision.Passable);
