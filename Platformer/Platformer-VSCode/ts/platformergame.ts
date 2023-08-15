@@ -22,7 +22,7 @@ export class PlatformerGame extends Game {
     private TargetFrameRate: number = 60;
     private BackBufferWidth: number = 1280;
     private BackBufferHeight: number = 720;
-    private m_ctrl: Controls = new Controls();
+    private keyPressed: Controls = new Controls();
     private m_gameTime: GameTime;
 
     public get Gametime(): GameTime {
@@ -72,29 +72,30 @@ export class PlatformerGame extends Game {
         this.onKeyboardRelease(event, false);
     }
 
-    private onKeyboardPress(event: Event, touchDevice: boolean) {
+    private onKeyboardPress(event: KeyboardEvent, touchDevice: boolean) {
+        // switch (event.key) {
         switch (((<number>(<KeyboardEvent>event).keyCode | 0))) {
             case 17:
-                this.m_ctrl.lcontrolPressed = true;
+                this.keyPressed.lcontrolPressed = true;
                 break;
             case 37:
-                this.m_ctrl.left = true;
+                this.keyPressed.left = true;
                 break;
             case 38:
-                this.m_ctrl.up = true;
+                this.keyPressed.up = true;
                 break;
             case 39:
-                this.m_ctrl.right = true;
+                this.keyPressed.right = true;
                 break;
             case 40:
-                this.m_ctrl.down = true;
+                this.keyPressed.down = true;
                 break;
             case 13:
-                this.m_ctrl.enterPressed = true;
-                this.m_ctrl.returnPressed = true;
+                this.keyPressed.enterPressed = true;
+                this.keyPressed.returnPressed = true;
                 break;
             case 32:
-                this.m_ctrl.spacePressed = true;
+                this.keyPressed.spacePressed = true;
                 break;
         }
     }
@@ -102,32 +103,32 @@ export class PlatformerGame extends Game {
     private onKeyboardRelease(event: Event, touchDevice: boolean) {
         switch (((<number>(<KeyboardEvent>event).keyCode | 0))) {
             case 17:
-                this.m_ctrl.lcontrolPressed = false;
+                this.keyPressed.lcontrolPressed = false;
                 break;
             case 37:
-                this.m_ctrl.left = false;
+                this.keyPressed.left = false;
                 break;
             case 38:
-                this.m_ctrl.up = false;
+                this.keyPressed.up = false;
                 break;
             case 39:
-                this.m_ctrl.right = false;
+                this.keyPressed.right = false;
                 break;
             case 40:
-                this.m_ctrl.down = false;
+                this.keyPressed.down = false;
                 break;
             case 13:
-                this.m_ctrl.enterPressed = false;
-                this.m_ctrl.returnPressed = false;
+                this.keyPressed.enterPressed = false;
+                this.keyPressed.returnPressed = false;
                 break;
             case 32:
-                this.m_ctrl.spacePressed = false;
+                this.keyPressed.spacePressed = false;
                 break;
         }
     }
 
     private HandleInput(): void {
-        let continuePressed: boolean = this.m_ctrl.spacePressed;
+        let continuePressed: boolean = this.keyPressed.spacePressed;
         if (!this.wasContinuePressed && continuePressed) {
             if (!this.level.Player.IsAlive) {
                 this.level.StartNewLife();
@@ -152,7 +153,7 @@ export class PlatformerGame extends Game {
         if (this.level) {
             tempScore = this.level.Score;
         }
-        this.level = new Level(null, levelPath, this.m_ctrl, tempScore);
+        this.level = new Level(null, levelPath, this.keyPressed, tempScore);
     }
 
     private ReloadCurrentLevel(): void {
