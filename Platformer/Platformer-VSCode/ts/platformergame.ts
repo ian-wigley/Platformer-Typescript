@@ -40,7 +40,7 @@ export class PlatformerGame extends Game {
 
     protected LoadContent(): void {
         this.spriteBatch = new SpriteBatch();
-        this.AddHitListener(this.spriteBatch.Canvas);
+        this.AddHitListener();
 
         this.winOverlay = <HTMLImageElement>document.getElementById("overlayWin");
         this.loseOverlay = <HTMLImageElement>document.getElementById("overlayLose");
@@ -50,7 +50,7 @@ export class PlatformerGame extends Game {
         this.LoadNextLevel();
     }
 
-    private AddHitListener(element: HTMLElement): void {
+    private AddHitListener(): void {
         window.addEventListener("keydown", (event) => {
             this.onKeyPress(event);
             return null;
@@ -73,55 +73,54 @@ export class PlatformerGame extends Game {
     }
 
     private onKeyboardPress(event: KeyboardEvent, touchDevice: boolean) {
-        // switch (event.key) {
-        switch (((<number>(<KeyboardEvent>event).keyCode | 0))) {
-            case 17:
+        switch (event.code) {
+            case "ControlLeft":
                 this.keyPressed.lcontrolPressed = true;
                 break;
-            case 37:
+            case "ArrowLeft":
                 this.keyPressed.left = true;
                 break;
-            case 38:
+            case "ArrowUp":
                 this.keyPressed.up = true;
                 break;
-            case 39:
+            case "ArrowRight":
                 this.keyPressed.right = true;
                 break;
-            case 40:
+            case "ArrowDown":
                 this.keyPressed.down = true;
                 break;
-            case 13:
+            case "Enter":
                 this.keyPressed.enterPressed = true;
                 this.keyPressed.returnPressed = true;
                 break;
-            case 32:
+            case "Space":
                 this.keyPressed.spacePressed = true;
                 break;
         }
     }
 
-    private onKeyboardRelease(event: Event, touchDevice: boolean) {
-        switch (((<number>(<KeyboardEvent>event).keyCode | 0))) {
-            case 17:
+    private onKeyboardRelease(event: KeyboardEvent, touchDevice: boolean) {
+        switch (event.code) {
+            case "ControlLeft":
                 this.keyPressed.lcontrolPressed = false;
                 break;
-            case 37:
+            case "ArrowLeft":
                 this.keyPressed.left = false;
                 break;
-            case 38:
+            case "ArrowUp":
                 this.keyPressed.up = false;
                 break;
-            case 39:
+            case "ArrowRight":
                 this.keyPressed.right = false;
                 break;
-            case 40:
+            case "ArrowDown":
                 this.keyPressed.down = false;
                 break;
-            case 13:
+            case "Enter":
                 this.keyPressed.enterPressed = false;
                 this.keyPressed.returnPressed = false;
                 break;
-            case 32:
+            case "Space":
                 this.keyPressed.spacePressed = false;
                 break;
         }
