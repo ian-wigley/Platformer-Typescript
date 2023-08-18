@@ -27,37 +27,11 @@ export class Player {
     private killedSound: HTMLAudioElement;
     private jumpSound: HTMLAudioElement;
     private fallSound: HTMLAudioElement;
-
-    public get Level(): Level {
-        return this.level;
-    }
-    level: Level;
-
-    public get IsAlive(): boolean {
-        return this.isAlive;
-    }
-    isAlive: boolean = true;
-
-    public get Position(): Vector2 {
-        return this.position;
-    }
-
-    public set Position(value: Vector2) {
-        this.position = value;
-    }
-    position: Vector2;
-
+    private level: Level;
+    private isAlive: boolean = true;
+    private position: Vector2;
     private previousBottom: number = 0;
-
-    public get Velocity(): Vector2 {
-        return this.velocity;
-    }
-
-    public set Velocity(value: Vector2) {
-        this.velocity = value;
-    }
-    velocity: Vector2 = Vector2.Zero;
-
+    private velocity: Vector2 = Vector2.Zero;
     private static MoveAcceleration: number = 14000.0;
     private static MaxMoveSpeed: number = 2000.0;
     private static GroundDragFactor: number = 0.58;
@@ -69,24 +43,13 @@ export class Player {
     private static JumpControlPower: number = 0.14;
     private static MoveStickScale: number = 1.0;
     private static JumpButton;
-
-    public get IsOnGround(): boolean {
-        return this.isOnGround;
-    }
-
-    isOnGround: boolean = true;
+    private isOnGround: boolean = true;
     private movement: number = 0;
     private isJumping: boolean = false;
     private wasJumping: boolean = false;
     private jumpTime: number = 1;
     private localBounds: Rectangle;
     private m_ctrl: Controls;
-
-    public get BoundingRectangle(): Rectangle {
-        let left: number = Math.round(this.Position.X - this.sprite.Origin.X) + this.localBounds.X;
-        let top: number = Math.round(this.Position.Y - this.sprite.Origin.Y) + this.localBounds.Y;
-        return new Rectangle(left, top, this.localBounds.Width, this.localBounds.Height);
-    }
 
     constructor(level: Level, position: Vector2, ctrl: Controls) {
         this.level = level;
@@ -146,7 +109,7 @@ export class Player {
         }
         this.isJumping = this.m_ctrl.lcontrolPressed;
         if (this.isJumping) {
-            var stopHere = true;
+            let stopHere = true;
         }
     }
 
@@ -253,5 +216,39 @@ export class Player {
             this.flip = SpriteEffects.None;
         }
         this.sprite.Draw(gameTime, spriteBatch, this.Position, this.flip);
+    }
+
+    public get BoundingRectangle(): Rectangle {
+        let left: number = Math.round(this.Position.X - this.sprite.Origin.X) + this.localBounds.X;
+        let top: number = Math.round(this.Position.Y - this.sprite.Origin.Y) + this.localBounds.Y;
+        return new Rectangle(left, top, this.localBounds.Width, this.localBounds.Height);
+    }
+
+    public get Level(): Level {
+        return this.level;
+    }
+
+    public get IsAlive(): boolean {
+        return this.isAlive;
+    }
+
+    public get Position(): Vector2 {
+        return this.position;
+    }
+
+    public set Position(value: Vector2) {
+        this.position = value;
+    }
+
+    public get Velocity(): Vector2 {
+        return this.velocity;
+    }
+
+    public set Velocity(value: Vector2) {
+        this.velocity = value;
+    }
+
+    public get IsOnGround(): boolean {
+        return this.isOnGround;
     }
 }
