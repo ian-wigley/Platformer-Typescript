@@ -192,7 +192,7 @@ export class PlatformerGame extends Game {
             let split = currentTime.split(".");
             min = split[0];
             let tempSeconds = split[1];
-            sec = tempSeconds.substr(0, 2);
+            sec = tempSeconds.substring(0, 2);
         }
         let timeString: string = "TIME: 0" + min + ":" + sec;
         let timeColor: Color;
