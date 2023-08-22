@@ -79,7 +79,8 @@
         import { PlatformerGame } from "./out/ts/platformergame.js"
         let game = new PlatformerGame();
         game.RunGame(true);
-        setInterval(() => game.Tick(), 13);
+        game.Tick();
+        //setInterval(() => game.Tick(), 13);
     </script>
 
 </body>
