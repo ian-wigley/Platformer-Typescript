@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Platformer Game</title>
     <link rel="stylesheet" href="app.css" type="text/css" />
-
 </head>
 
 <body>
-
     <div id="container">
         <canvas id="canvas" width="1280" height="720"></canvas>
     </div>
@@ -18,7 +16,6 @@
     <img id="overlayDied" src="Content/images/Overlays/you_died.png" alt="" />
     <img id="overlayLose" src="Content/images/Overlays/you_lose.png" alt="" />
     <img id="overlayWin" src="Content/images/Overlays/you_win.png" alt="" />
-
     <img id="gem" src="Content/images/Sprites/Gem.png" alt="" />
 
     <img id="playerCelebrate" src="Content/images/Sprites/Player/Celebrate.png" alt="" />
@@ -65,24 +62,21 @@
     <img id="MonsterDIdle" src="Content/images/Sprites/MonsterD/Idle.png" alt="" />
     <img id="MonsterDRun" src="Content/images/Sprites/MonsterD/Run.png" alt="" />
 
-    <audio id="ExitReached" src="Content/sounds/ExitReached.mp3" ></audio>
-    <audio id="GemCollected" src="Content/sounds/GemCollected.mp3" ></audio>
-    <audio id="MonsterKilled" src="Content/sounds/MonsterKilled.mp3" ></audio>
+    <audio id="ExitReached" src="Content/sounds/ExitReached.mp3"></audio>
+    <audio id="GemCollected" src="Content/sounds/GemCollected.mp3"></audio>
+    <audio id="MonsterKilled" src="Content/sounds/MonsterKilled.mp3"></audio>
     <audio id="Music" src="Content/sounds/Music.mp3" muted="true"></audio>
-    <audio id="PlayerFall" src="Content/sounds/PlayerFall.mp3" ></audio>
-    <audio id="PlayerJump" src="Content/sounds/PlayerJump.mp3" ></audio>
-    <audio id="PlayerKilled" src="Content/sounds/PlayerKilled.mp3" ></audio>
-    <audio id="PowerUp" src="Content/sounds/PowerUp.mp3" ></audio>
-
+    <audio id="PlayerFall" src="Content/sounds/PlayerFall.mp3"></audio>
+    <audio id="PlayerJump" src="Content/sounds/PlayerJump.mp3"></audio>
+    <audio id="PlayerKilled" src="Content/sounds/PlayerKilled.mp3"></audio>
+    <audio id="PowerUp" src="Content/sounds/PowerUp.mp3"></audio>
 
     <script type="module">
         import { PlatformerGame } from "./out/ts/platformergame.js"
         let game = new PlatformerGame();
         game.RunGame(true);
         game.Tick();
-        //setInterval(() => game.Tick(), 13);
     </script>
-
 </body>
 
 </html>
