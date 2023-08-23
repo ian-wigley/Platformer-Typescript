@@ -46,7 +46,7 @@ export class PlatformerGame extends Game {
         this.loseOverlay = <HTMLImageElement>document.getElementById("overlayLose");
         this.diedOverlay = <HTMLImageElement>document.getElementById("overlayDied");
         let music: HTMLAudioElement = <HTMLAudioElement>document.getElementById("Music");
-        music.play();
+        // music.play();
         this.LoadNextLevel();
     }
 
@@ -189,10 +189,10 @@ export class PlatformerGame extends Game {
         let min: string = "";
         let sec: string = "";
         if (this.level.TimeRemaining.Minutes > 0) {
-            let split = currentTime.split(".");
-            min = split[0];
-            let tempSeconds = split[1];
-            sec = tempSeconds.substring(0, 2);
+            let splitMin = currentTime.split(".");
+            min = splitMin[0];
+            let splitSsec = this.level.TimeRemaining.Seconds.toString().split(".");
+            sec = splitSsec[0];
         }
         let timeString: string = "TIME: 0" + min + ":" + sec;
         let timeColor: Color;
@@ -228,11 +228,3 @@ export class PlatformerGame extends Game {
         this.spriteBatch.DrawString(font, value, position, color);
     }
 }
-
-// export enum Color {
-//     Black = "#000000",
-//     CornflowerBlue = "#6495ED",
-//     Red = "#FF0000",
-//     White = "#FFFFFF",
-//     Yellow = "#FFF000"
-// }
